@@ -1,15 +1,16 @@
 
 import './App.css';
-import Image from './Components/Image/Image'
+// import Image from './Components/Image/Image'
 import Home from './Components/Home/Home'
 import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import LoginForm from './Components/Form/LoginForm';
 import Form1 from './Components/Form/Form1';
-import CustomerRegistration from './Components/CustomerRegistration/CustomerRegistration';
 import CustomerLogin from './Components/CustomerLogin/CustomerLogin';
 import ActiveUsers from './Components/ActiveUsers/ActiveUsers';
-import NumberOfItemsPurchased from './Components/NumberOfItemsPurchased/NumberOfItemsPurchased';
-
+import TotalPayment from './Components/TotalPayment/TotalPayment';
+import TotalPaymentRecived from './Components/TodayPaymentRecived/TodayPaymentRecived'
+import ItemsPurchased from './Components/ItemsPurchased/ItemsPurchased';
+import NewUsers from './Components/NewUsers/NewUsers';
 function App() {
  
   return (
@@ -24,7 +25,10 @@ function App() {
        {/* <Route path='/image' index element={<Image />} /> */}
        <Route path="/customerLogin" element={<CustomerLogin /> } />
        <Route path="/Number of Active Users" element={<ActiveUsers />} />
-       <Route path="/Items Purchased" element={<NumberOfItemsPurchased />} />
+       <Route path="/Total Payment" element={<TotalPayment />} />
+       <Route path="/Payment Received" element={<TotalPaymentRecived />} />
+       <Route path="/Items Purchased" element={<ItemsPurchased />} />
+       <Route path="/New Users" element={<NewUsers />} />
 
        {/* <Route path="FormRegister" element={<FormRegister />} /> */}
        </Route>

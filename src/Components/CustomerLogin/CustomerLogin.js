@@ -19,7 +19,9 @@ const CustomerLogin = () => {
   const [currentPage, setCurrentPage] = useState(1); // Current page number
   const [itemsPerPage] = useState(5);
 
-
+  // Add state variables for the modal
+  const [modalImageUrl, setModalImageUrl] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchShops();
@@ -93,6 +95,17 @@ const CustomerLogin = () => {
     overflowY: 'auto',  // Enable vertical scrollbar
   };
 
+  // Function to open the modal
+  const openModal = (imageUrl) => {
+    setModalImageUrl(imageUrl);
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
       <Navbar1 />
@@ -127,8 +140,7 @@ const CustomerLogin = () => {
               <td>{shop.gstRegistrationNo}</td>
               <td>{shop.BbmpCertificateNo}</td>
               <td>
-              {shop.image && <img src={shop.image} className="card-img-top" alt="Shop Image" style={{ width: "100px" }} />}
-
+              {shop.image && <img src={shop.image} className="card-img-top" alt="Shop Image" style={{ width: "100px", cursor:'pointer' }} onClick={() => openModal(shop.image)} />}
               </td>
               {/* <td>
               <button onClick={() => setSelectedShop(shop)}>Edit</button>
@@ -141,6 +153,29 @@ const CustomerLogin = () => {
           ))}
       </tbody>
       </table>
+ {/* Modal for displaying the image */}
+ {isModalOpen && (
+          <div id="imageModal" className="modal"   style={{
+            display: "none",
+            position: "fixed",
+            zIndex: "1",
+            left: "0",
+            top: "0",
+            width: "100%",
+            height: "100%",
+            overflow: "auto",
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+          }}>
+            <span className="close" onClick={closeModal}>&times;</span>
+            <img src={modalImageUrl} alt="Modal" className="modal-content" style={{
+            margin: "auto",
+            display: "block",
+            width: "80%",
+            maxWidth: "800px",
+          }}/>
+          </div>
+        )}
+
   {/* Pagination */}
   {/* Pagination */}
   <nav>
