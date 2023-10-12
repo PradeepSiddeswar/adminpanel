@@ -76,7 +76,6 @@ const Cards = () => {
                 <Link to="/shopkeeper Reg">
                 <button type="button" class="btn btn">
                   <FontAwesomeIcon icon={faRegistered} style={{ color: 'white', fontSize: '20px' }} />
-
                 </button>
                 </Link>
                 {/* <p>Comments</p> */}
@@ -97,7 +96,21 @@ const Cards = () => {
             </div>
             </div>
           </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card" style={{marginTop:"10px"}}>
+              <div class="card-body" style={{ backgroundColor: '#16283c', borderRadius:'10px'}}>
+                <p class="card-title" style={{ fontWeight: 'bold', color:'white' }}>Total Orders</p>
+               <Link to="/Total Orders">
+                <button type="button" class="btn btn">
+                <FontAwesomeIcon icon={faUsers} style={{color:'white', fontSize:'30px', marginTop:'12px'}}/>
+                </button>
+                </Link>
+                {/* <p>Comments</p> */}
+              </div>
+            </div>
+            </div>
           </div>
+        
         </>
     )
 }

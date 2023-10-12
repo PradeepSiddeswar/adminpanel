@@ -11,6 +11,9 @@ import TotalPayment from './Components/TotalPayment/TotalPayment';
 import TotalPaymentRecived from './Components/TodayPaymentRecived/TodayPaymentRecived'
 import ItemsPurchased from './Components/ItemsPurchased/ItemsPurchased';
 import NewUsers from './Components/NewUsers/NewUsers';
+import ItemReturnedTotal from './Components/ItemsReturnedTotal/ItemsReturnedTotal';
+import TotalOrders from './Components/TotalOrders/TotalOrders';
+import FileUploadComponent from './Components/ImageUpload/ImageUpoad';
 function App() {
  
   return (
@@ -29,6 +32,10 @@ function App() {
        <Route path="/Payment Received" element={<TotalPaymentRecived />} />
        <Route path="/Items Purchased" element={<ItemsPurchased />} />
        <Route path="/New Users" element={<NewUsers />} />
+       <Route path='/Items Return' element={<ItemReturnedTotal />} />
+       <Route path='/Total Orders' element={<TotalOrders />} />
+
+<Route path='/NumberOfPendingReview' element={<FileUploadComponent />} />
 
        {/* <Route path="FormRegister" element={<FormRegister />} /> */}
        </Route>

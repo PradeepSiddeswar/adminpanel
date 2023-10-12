@@ -2,83 +2,81 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPeopleRoof } from '@fortawesome/free-solid-svg-icons';
-import { faRegistered } from '@fortawesome/free-solid-svg-icons';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
-
 const Card = () => {
- 
   return (
-   
     <div>
-
-
-      <div class="container mt-3 ">
+      <div class="container mt-3">
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card">
               <div class="card-body" style={{ backgroundColor: 'lightgray' }}>
-                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}> Total Number of Customer Registration</p>
+                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}>
+                  To.No. of Customer Registration
+                </p>
                 <Link to="/customerLogin">
-                  <button className="btn btn" style={{direction:'none'}}>
-                    <i className="fas fa-user" style={{ color: 'orange', fontSize: '30px' }}></i>
+                <button className="btn d-flex align-items-center">
+                  <FontAwesomeIcon icon={faUsers} style={{ color: 'orange', fontSize: '30px' }} />
                   </button>
                 </Link>
                 <h5 class="card-title">5000</h5>
-
-                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
               </div>
             </div>
           </div>
-         
+
           <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card">
               <div class="card-body" style={{ backgroundColor: 'lightgray' }}>
-                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}>Total number of shopkeeper Registration</p>
-                <Link to="/Totalnumbe ofshopkeeperRegistration">
-                <button type="button" class="btn btn">
-                  <FontAwesomeIcon icon={faPeopleRoof} style={{ color: 'red', fontSize: '25px' }} />
-                </button>
+                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}>
+                  To.No of shopkeeper Registration
+                </p>
+                <Link to="/TotalNumberOfShopkeeperRegistration">
+                <button className="btn d-flex align-items-center">
+                    <FontAwesomeIcon icon={faPeopleRoof} style={{ color: 'red', fontSize: '30px' }} />
+                  </button>
                 </Link>
                 <h5 class="card-title">3000</h5>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card">
+              <div class="card-body" style={{ backgroundColor: 'lightgray' }}>
+                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}>
+                  Total Number of Pending Review
+                </p>
+                <Link to="/NumberOfPendingReview">
+                  <button className="btn d-flex align-items-center">
+                  <FontAwesomeIcon icon={faUsers} style={{ color: 'orange', fontSize: '30px' }} />
+                  </button>
+                </Link>
+                <h5 class="card-title">2000</h5>
               </div>
             </div>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card">
               <div class="card-body" style={{ backgroundColor: 'lightgray' }}>
-                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}> Total Number of Pending Review</p>
-                <Link to="/Number of pending review">
-                  <button className="btn btn">
-                    <i className="fas fa-user" style={{ color: 'orange', fontSize: '30px', marginTop:'18px' }}></i>
+                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}>
+                 Total Number of Active  NewUsers
+                </p>
+                <Link to="/NumberOfActiveUsers">
+                  <button className="btn d-flex align-items-center">
+                    <FontAwesomeIcon icon={faUsers} style={{ color: 'orange', fontSize: '30px' }} />
                   </button>
                 </Link>
-                <h5 class="card-title">5000</h5>
-
-                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+                <h5 class="card-title">6000</h5>
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card">
-              <div class="card-body" style={{ backgroundColor: 'lightgray' }}>
-                <p class="card-title" style={{ color: 'green', fontWeight: 'bold' }}> Number of Active Users</p>
-                <Link to="/Number of Active Users">
-                  <button className="btn btn">
-                  <FontAwesomeIcon icon={faUsers} style={{color:'orange', fontSize:'30px', marginTop:'12px'}}/>
-                  </button>
-                </Link>
-                <h5 class="card-title">500</h5>
 
-                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   );
 }
+
 export default Card;
 
