@@ -14,7 +14,7 @@ function Form() {
 
 
   const fetchPosts = () => {
-    axios.get("http://localhost:8080/form/get")
+    axios.get("https://postlogin.onrender.com/form/get")
       .then(response => setData(response.data))
       .catch(error => console.error('Error fetching data:', error));
   };
@@ -24,11 +24,11 @@ function Form() {
     try {
       if (selectedPost) {
         // Update existing post
-        await axios.put(`http://localhost:8080/form/update${selectedPost.id}`, postData);
+        await axios.put(`https://postlogin.onrender.com/form/update${selectedPost.id}`, postData);
         setSelectedPost(null);
       } else {
         // Create new post
-        await axios.post("http://localhost:8080/form/form", postData);
+        await axios.post("https://postlogin.onrender.com/form/form", postData);
       }
 
       setPostData({ name: '', offers: '', slecteCategories: '', image: '', });

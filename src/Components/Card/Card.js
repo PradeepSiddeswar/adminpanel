@@ -67,7 +67,7 @@ const Card = () => {
                     <FontAwesomeIcon icon={faUsers} style={{ color: 'orange', fontSize: '30px' }} />
                   </button>
                 </Link>
-                <h5 class="card-title">6000</h5>
+                <h5 class="card-title">500</h5>
               </div>
             </div>
           </div>

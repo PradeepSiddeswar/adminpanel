@@ -42,5 +42,3 @@ const FileUploadComponent = () => {
 };
 
 export default FileUploadComponent;
-
-

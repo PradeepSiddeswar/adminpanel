@@ -29,7 +29,7 @@ const CustomerLogin = () => {
 
   const fetchShops = () => {
     axios
-      .get('http://localhost:8080/customerLogin/getAll')
+      .get('https://postlogin.onrender.com/customerLogin/getAll')
       .then((response) => setData(response.data))
       .catch((error) => console.error('Error fetching data:', error));
   };
@@ -40,11 +40,11 @@ const CustomerLogin = () => {
     try {
       if (selectedShop) {
         // Update existing shop
-        await axios.put(`http://localhost:8080/customerLogin/update/${selectedShop.id}`, shopData);
+        await axios.put(`https://postlogin.onrender.com/customerLogin/update/${selectedShop.id}`, shopData);
         setSelectedShop(null);
       } else {
         // Create new shop
-        await axios.post('http://localhost:8080/customerLogin', shopData);
+        await axios.post('https://postlogin.onrender.com/customerLogin', shopData);
       }
 
       setShopData({
@@ -90,10 +90,10 @@ const CustomerLogin = () => {
 
   // Calculate the number of pages
   const totalPages = Math.ceil(data.length / itemsPerPage);
-  const scrollableContainerStyle = {
-    maxHeight: '400px', // Set the maximum height as needed
-    overflowY: 'auto',  // Enable vertical scrollbar
-  };
+  // const scrollableContainerStyle = {
+  //   maxHeight: '400px', // Set the maximum height as needed
+  //   overflowY: 'auto',  // Enable vertical scrollbar
+  // };
 
   // Function to open the modal
   const openModal = (imageUrl) => {
@@ -112,7 +112,7 @@ const CustomerLogin = () => {
     <div class="container text-center mt-5">
 
       <h2>Shop List</h2>
-      <div style={scrollableContainerStyle}>
+      <div>
       <table class="table table-hover" >
   <thead>
     <tr>

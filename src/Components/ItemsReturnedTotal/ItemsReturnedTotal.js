@@ -10,7 +10,7 @@ const ItemReturnedTotal = () => {
 
   useEffect(() => {
     // Make a GET request to your backend API endpoint
-    axios.get('http://localhost:8080/item/item-returned')
+    axios.get('https://postlogin.onrender.com/item/item-returned')
       .then((response) => {
         // Set the payments data in your component's state
         setPayments(response.data.items);
@@ -24,7 +24,7 @@ const ItemReturnedTotal = () => {
 
   const handleDeletePayment = (paymentId) => {
     // Make a DELETE request to your backend API to delete the payment by ID
-    axios.delete(`http://localhost:8080/item/delete/${paymentId}`)
+    axios.delete(`https://postlogin.onrender.com/item/delete/${paymentId}`)
       .then((response) => {
         // If the payment is successfully deleted, update the payments state
         setPayments((prevPayments) => prevPayments.filter((payment) => payment._id !== paymentId));

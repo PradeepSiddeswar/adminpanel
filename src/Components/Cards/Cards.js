@@ -96,6 +96,7 @@ const Cards = () => {
             </div>
             </div>
           </div>
+          <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card" style={{marginTop:"10px"}}>
               <div class="card-body" style={{ backgroundColor: '#16283c', borderRadius:'10px'}}>
@@ -105,8 +106,8 @@ const Cards = () => {
                 <FontAwesomeIcon icon={faUsers} style={{color:'white', fontSize:'30px', marginTop:'12px'}}/>
                 </button>
                 </Link>
-                {/* <p>Comments</p> */}
               </div>
+            </div>
             </div>
             </div>
           </div>

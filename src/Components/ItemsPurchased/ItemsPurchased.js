@@ -8,7 +8,7 @@ const ItemsPurchased = () => {
 
   useEffect(() => {
     // Make a GET request to your backend API endpoint
-    axios.get('http://localhost:8080/item/item-get')
+    axios.get('https://postlogin.onrender.com/item/item-get')
       .then((response) => {
         // Set the payments data in your component's state
         setItems(response.data.items);
@@ -23,7 +23,7 @@ const ItemsPurchased = () => {
 
   const handleDeletePayment = (itemId) => {
     // Make a DELETE request to your backend API to delete the payment by ID
-    axios.delete(`http://localhost:8080/item/delete/${itemId}`)
+    axios.delete(`https://postlogin.onrender.com/item/delete/${itemId}`)
       .then((response) => {
         // If the payment is successfully deleted, update the payments state
         setItems((prevItems) => prevItems.filter((item) => item._id !== itemId));
@@ -44,6 +44,7 @@ const ItemsPurchased = () => {
               <tr>
                 <th scope="col" style={{ color: 'green' }}>#</th>
                 <th scope="col" style={{ color: 'green' }}>ItemName</th>
+                <th scope="col" style={{ color: 'green' }}>Price</th>
                 <th scope="col" style={{ color: 'green' }}>Quantity</th>
                 <th scope="col" style={{ color: 'green' }}>Actions</th>
               </tr>
@@ -53,6 +54,7 @@ const ItemsPurchased = () => {
                 <tr key={item._id}>
                   <th scope="row" style={{ color: 'green' }}>{index + 1}</th>
                   <td style={{ color: 'green' }}>{item.itemName}</td>
+                  <td style={{color:'green'}}>{item.price}</td>
                   <td style={{ color: 'green' }}>{item.quantity}</td>
                   <td>
                     <button className="btn btn-danger" onClick={() => handleDeletePayment(item._id)}>Delete</button>

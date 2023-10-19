@@ -23,7 +23,7 @@ const Chats = () => {
                 <h4 style={{marginLeft:'700px',  marginTop:'-400px', color:'#16283c' }}>Extra Area Chats</h4>
                 <div class="d-flex justify-content-end align-items-end" style={{marginLeft:'600px', marginTop:'-0px'}}>
                 <BarChart
-      width={650}
+      width={550}
       height={400}
       data={data}
     >

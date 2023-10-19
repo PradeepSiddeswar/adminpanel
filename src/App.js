@@ -15,32 +15,31 @@ import ItemReturnedTotal from './Components/ItemsReturnedTotal/ItemsReturnedTota
 import TotalOrders from './Components/TotalOrders/TotalOrders';
 import FileUploadComponent from './Components/ImageUpload/ImageUpoad';
 function App() {
- 
+
   return (
     <div className="App">
       <BrowserRouter>
-    
-     <Routes>
-       <Route path="/" >
-       <Route index element={<Home />} />
-       <Route path='/' index element={<LoginForm />} />
-       <Route path='/form' index element={<Form1 />} />
-       {/* <Route path='/image' index element={<Image />} /> */}
-       <Route path="/customerLogin" element={<CustomerLogin /> } />
-       <Route path="/Number of Active Users" element={<ActiveUsers />} />
-       <Route path="/Total Payment" element={<TotalPayment />} />
-       <Route path="/Payment Received" element={<TotalPaymentRecived />} />
-       <Route path="/Items Purchased" element={<ItemsPurchased />} />
-       <Route path="/New Users" element={<NewUsers />} />
-       <Route path='/Items Return' element={<ItemReturnedTotal />} />
-       <Route path='/Total Orders' element={<TotalOrders />} />
 
-<Route path='/NumberOfPendingReview' element={<FileUploadComponent />} />
-
-       {/* <Route path="FormRegister" element={<FormRegister />} /> */}
-       </Route>
-     </Routes>
-   </BrowserRouter>
+        <Routes>
+          <Route path="/" >
+            <Route index element={<Home />} />
+            <Route path='/' index element={<LoginForm />} />
+            <Route path='/form' index element={<Form1 />} />
+            {/* <Route path='/image' index element={<Image />} /> */}
+            <Route path="/customerLogin" element={<CustomerLogin />} />
+            <Route path="/NumberofActiveUsers" element={<ActiveUsers />} />
+            <Route path="/Total Payment" element={<TotalPayment />} />
+            <Route path="/Payment Received" element={<TotalPaymentRecived />} />
+            <Route path="/Items Purchased" element={<ItemsPurchased />} />
+            <Route path="/New Users" element={<NewUsers />} />
+            <Route path='/Items Return' element={<ItemReturnedTotal />} />
+            <Route path='/Total Orders' element={<TotalOrders />} />
+            <Route path='/NumberOfPendingReview' element={<FileUploadComponent />} />
+            
+            {/* <Route path="FormRegister" element={<FormRegister />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
