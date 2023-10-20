@@ -14,10 +14,12 @@ import NewUsers from './Components/NewUsers/NewUsers';
 import ItemReturnedTotal from './Components/ItemsReturnedTotal/ItemsReturnedTotal';
 import TotalOrders from './Components/TotalOrders/TotalOrders';
 import FileUploadComponent from './Components/ImageUpload/ImageUpoad';
+// import Side from './Components/Sidebar/Side';
 function App() {
 
   return (
     <div className="App">
+      {/* <Side/> */}
       <BrowserRouter>
 
         <Routes>
@@ -35,7 +37,6 @@ function App() {
             <Route path='/Items Return' element={<ItemReturnedTotal />} />
             <Route path='/Total Orders' element={<TotalOrders />} />
             <Route path='/NumberOfPendingReview' element={<FileUploadComponent />} />
-            
             {/* <Route path="FormRegister" element={<FormRegister />} /> */}
           </Route>
         </Routes>

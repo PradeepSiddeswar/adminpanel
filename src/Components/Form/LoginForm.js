@@ -1,131 +1,120 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, Form, Input } from 'antd';
-import { FacebookOutlined } from '@ant-design/icons'
-
 
 const App = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [number, setNumber] = useState('');
-      
+  // Define state variables for form input
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [mobile, setMobile] = useState('');
 
-const onFinish = (values) => {
-  console.log('Success:', values);
+  // Define state variables to track validation status
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [mobileError, setMobileError] = useState('');
 
-  navigate('/form');
+  // Handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Reset validation errors
+    setUsernameError('');
+    setPasswordError('');
+    setMobileError('');
+
+    // Perform validation
+    let isValid = true;
+
+    if (!username) {
+      setUsernameError('Username is required');
+      isValid = false;
+    }
+
+    if (!password) {
+      setPasswordError('Password is required');
+      isValid = false;
+    }
+
+    if (!mobile) {
+      setMobileError('Mobile number is required');
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    // Redirect to another page after form submission (e.g., '/form')
+    navigate('/form');
+  };
+
+  return (
+    <div className="container text-center mt-5">
+      <div className=" " style={{ maxWidth: '600px', marginLeft: '200px' }}>
+        {/* <h1 className="text-success" style={{ marginTop: '50px' , marginRight:'200px'}}>Login</h1> */}
+        <form onSubmit={handleSubmit}>
+          <div className="row mb-3">
+            <label htmlFor="inputUserName" className="col-sm-2 col-form-label">
+              UserName:
+            </label>
+            <div className="col-sm-5">
+              <input
+                type="username"
+                className={`form-control ${usernameError ? 'is-invalid' : ''}`}
+                id="inputUserName"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <div className="invalid-feedback">{usernameError}</div>
+            </div>
+          </div>
+          <div className="row mb-3">
+            <label htmlFor="inputPassword" className="col-sm-2 col-form-label">
+              Password :
+            </label>
+            <div className="col-sm-5">
+              <input
+                type="password"
+                className={`form-control ${passwordError ? 'is-invalid' : ''}`}
+                id="inputPassword"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="invalid-feedback">{passwordError}</div>
+            </div>
+          </div>
+          <div className="row mb-3">
+            <label htmlFor="inputNumber" className="col-sm-2 col-form-label">
+              Mobile :
+            </label>
+            <div className="col-sm-5">
+              <input
+                type="number"
+                className={`form-control ${mobileError ? 'is-invalid' : ''}`}
+                id="inputNumber"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+              />
+              <div className="invalid-feedback">{mobileError}</div>
+            </div>
+          </div>
+          <div className="row mb-3">
+            <div className="col-sm-10 offset-sm-2">
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" id="gridCheck1" />
+                <label className="form-check-label" htmlFor="gridCheck1"></label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" className="btn btn-primary" style={{marginRight:'100px'}}>
+            Sign in
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 };
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
 
-        const handleSubmit = event => {
-          event.preventDefault();
-      
-          // You can perform any necessary validation here
-      
-          // Redirect to another page after form submission
-             navigate('/form');
-        };
-
-    return(
-      <div class="container text-center mt-5">
-        <div className="  " style={{maxWidth:'600px', marginLeft:'200px'}}>
-        <h1 class="text-success" style={{ marginTop:'100px'}}>Login </h1>
-  <Form onSubmit={handleSubmit}
-    name="basic"
-    labelCol={{
-      span: 8,
-    }}
-    wrapperCol={{
-      span: 16,
-    }}
-    style={{
-      maxWidth: 400,
-      marginTop:100,
-      marginLeft:80,
-    }}
-    initialValues={{
-      remember: true,
-    }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <Form.Item
-      label="Username"
-      name="username"
-      rules={[
-        {
-          required: true,
-          message: 'Please input your username!',
-        },
-      ]}
-    >
-      <Input value={username} onChange={(e) => setUsername(e.target.value)}/>
-    </Form.Item>
-
-    <Form.Item
-      label="Password"
-      name="password"
-      rules={[
-        {
-          required: true,
-          message: 'Please input your password!',
-        },
-      ]}
-    >
-      <Input.Password  value={password} onChange={(e) => setPassword(e.target.value)}/>
-    </Form.Item>
-    <Form.Item
-      label="Number"
-      name="Number"
-      rules={[
-        {
-          required: true,
-          message: 'Please input your number!',
-        },
-      ]}
-    >
-      <Input  value={number} onChange={(e) => setNumber(e.target.value)}/>
-    </Form.Item>
-    <Form.Item
-      name="remember"
-      valuePropName="checked"
-      wrapperCol={{
-        offset: 8,
-        span: 16,
-      }}
-    >
-      <Checkbox>Remember me</Checkbox>
-    </Form.Item>
-
-    <Form.Item
-      wrapperCol={{
-        offset: 8,
-        span: 16,
-      }}
-    >
-      <Button type="primary" htmlType="submit">
-    Login
-      </Button>
-    </Form.Item>
-
-<div className=''>
-    <p>Or Sign Up Using</p>
-</div>
-{/* <div className='icon'>
-
-<Button type="link" href="url://" icon={<FacebookOutlined  style={{fontSize:'35px'}}/>} />
-
-</div> */}
-
-  </Form>
-  </div>
-  </div>
-    )
-};
 export default App;

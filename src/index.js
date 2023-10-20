@@ -2,6 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'; // Replace 'App' with your root component
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 // Render your app with Redux store
 // Remove the Provider and references to the Redux store

@@ -16,8 +16,7 @@ const Form1 = () => {
    <Sidebar/>
    <Card />
    <Cards />
-   {/* <Form /> */}
-{/* <CustomerLogin /> */}
+  
 <Chats />
         </>
     )
