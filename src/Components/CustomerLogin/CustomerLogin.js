@@ -29,7 +29,7 @@ const CustomerLogin = () => {
 
   const fetchShops = () => {
     axios
-      .get('https://postlogin.onrender.com/customerLogin/getAll')
+      .get('http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/customerLogin/getAll')
       .then((response) => setData(response.data))
       .catch((error) => console.error('Error fetching data:', error));
   };
@@ -40,11 +40,11 @@ const CustomerLogin = () => {
     try {
       if (selectedShop) {
         // Update existing shop
-        await axios.put(`https://postlogin.onrender.com/customerLogin/update/${selectedShop.id}`, shopData);
+        await axios.put(`http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/customerLogin/update/${selectedShop.id}`, shopData);
         setSelectedShop(null);
       } else {
         // Create new shop
-        await axios.post('https://postlogin.onrender.com/customerLogin', shopData);
+        await axios.post('http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/customerLogin', shopData);
       }
 
       setShopData({
@@ -69,8 +69,8 @@ const CustomerLogin = () => {
 
     if (confirmed) {
       try {
-        console.log('Sending DELETE request to:', `http://localhost:8080/customerLogin/delete/${shopId}`);
-        await axios.delete(`http://localhost:8080/customerLogin/delete/${shopId}`);
+        console.log('Sending DELETE request to:', `http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/customerLogin/delete/${shopId}`);
+        await axios.delete(`http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/customerLogin/delete/${shopId}`);
         console.log('Shop deleted successfully');
         fetchShops(); // Refresh the data after deletion
       } catch (error) {

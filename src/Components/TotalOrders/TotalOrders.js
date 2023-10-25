@@ -11,7 +11,7 @@ const TotalOrders = () => {
 
     useEffect(() => {
         // Make a GET request to your backend API endpoint
-        axios.get('https://postlogin.onrender.com/orders/total-orders-today')
+        axios.get('http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/orders/total-orders-today')
             .then((response) => {
                 // Set the payments data in your component's state
                 setPayments(response.data.orders);
@@ -26,7 +26,7 @@ const TotalOrders = () => {
 
     const handleDeletePayment = (paymentId) => {
         // Make a DELETE request to your backend API to delete the payment by ID
-        axios.delete(`https://postlogin.onrender.com/orders/delete/${paymentId}`)
+        axios.delete(`http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/orders/delete/${paymentId}`)
             .then((response) => {
                 // If the payment is successfully deleted, update the payments state
                 setPayments((prevPayments) => prevPayments.filter((payment) => payment._id !== paymentId));

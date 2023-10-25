@@ -18,7 +18,7 @@ const FileUploadComponent = () => {
         redirect: 'follow'
       };
 
-      fetch("https://postlogin.onrender.com/image-upload", requestOptions)
+      fetch("http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/image-upload", requestOptions)
         .then(response => response.text())
         .then(result => {
           console.log('File uploaded:', result);

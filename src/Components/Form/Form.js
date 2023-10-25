@@ -14,7 +14,7 @@ function Form() {
 
 
   const fetchPosts = () => {
-    axios.get("https://postlogin.onrender.com/form/get")
+    axios.get("http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/form/get")
       .then(response => setData(response.data))
       .catch(error => console.error('Error fetching data:', error));
   };
@@ -24,11 +24,11 @@ function Form() {
     try {
       if (selectedPost) {
         // Update existing post
-        await axios.put(`https://postlogin.onrender.com/form/update${selectedPost.id}`, postData);
+        await axios.put(`http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/form/update${selectedPost.id}`, postData);
         setSelectedPost(null);
       } else {
         // Create new post
-        await axios.post("https://postlogin.onrender.com/form/form", postData);
+        await axios.post("http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/form/form", postData);
       }
 
       setPostData({ name: '', offers: '', slecteCategories: '', image: '', });
@@ -43,7 +43,7 @@ function Form() {
 
     if (confirmed) {
       try {
-        await axios.delete(`http://localhost:8080/form/delete/${postId}`);
+        await axios.delete(`http://backend-env.eba-mnh4itmz.ap-south-1.elasticbeanstalk.com/form/delete/${postId}`);
         fetchPosts(); // Refresh the data after deletion
       } catch (error) {
         console.error('Error deleting post', error);
